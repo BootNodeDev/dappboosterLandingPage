@@ -1,5 +1,5 @@
 ---
-import '@fontsource-variable/manrope';
+import "@fontsource-variable/manrope";
 
 const image = "/ogImage.jpg";
 const description =
@@ -42,15 +42,15 @@ const description =
   body {
     margin: 0;
     padding: 0;
-	color: var(--textColor);
+    color: var(--textColor);
     background: var(--primary, #2e3048);
     max-width: 100vw;
     overflow-x: hidden;
-	font-family: 'Manrope Variable', sans-serif;
+    font-family: "Manrope Variable", sans-serif;
     font-size: var(--bodyFontSize);
 
-	@media only screen and (max-width: 768px) {
-		font-size: var(--bodyFontSize-sm);
+    @media only screen and (max-width: 768px) {
+      font-size: var(--bodyFontSize-sm);
     }
 
     ::selection {
@@ -74,13 +74,13 @@ const description =
     *:after {
       box-sizing: border-box;
     }
-	a{
-		color: var(--secondaryLightest);
-		text-decoration: none;
-		&:hover,
-		&:focus-visible {
-			color: var(--secondaryLight);
-		}
-	}
+    a {
+      color: var(--secondaryLightest);
+      text-decoration: none;
+      &:hover,
+      &:focus-visible {
+        color: var(--secondaryLight);
+      }
+    }
   }
 </style>
