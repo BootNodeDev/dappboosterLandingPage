@@ -1,0 +1,69 @@
+---
+import ChevronRight from "@/assets/icons/ChevronRight.astro";
+import dAppBoosterLogo from "@assets/dAppBoosterLogo.svg";
+import Wrapper from "@components/Wrapper.astro";
+---
+
+<Wrapper>
+  <header>
+    <a href="/">
+      <img
+        class="logo"
+        src={dAppBoosterLogo.src}
+        alt="dAppBooster - A blockchain boilerplate to kickstart your next Web3 project"
+      />
+    </a>
+    <a
+      href="https://github.com/bootnodedev/dappbooster/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="button"
+      ><span>Launch your <span>next</span> dApp</span> <ChevronRight /></a
+    >
+  </header>
+</Wrapper>
+
+<style>
+  header {
+    padding: calc(var(--space) * 2) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    height: 76px;
+    width: auto;
+    @media only screen and (max-width: 768px) {
+      height: 60px;
+    }
+  }
+  a.button {
+    color: var(--greyLightest);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    padding: var(--space) calc(var(--space) * 2) var(--space)
+      calc(var(--space) * 3);
+    gap: calc(var(--space) * 2);
+    border-radius: 30px;
+    background: var(--secondaryLight);
+    text-decoration: none;
+    box-shadow:
+      0px 9.6px 13px 0px rgba(0, 0, 0, 0.08),
+      0px 2.1px 4.625px 0px rgba(0, 0, 0, 0.05);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--secondary);
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 1.3rem;
+      gap: var(--space);
+      padding: var(--space) var(--space) var(--space)
+        calc(var(--space) * 2);
+      > span > span {
+        display: none;
+      }
+    }
+  }
+</style>

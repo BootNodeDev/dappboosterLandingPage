@@ -1,0 +1,86 @@
+---
+import '@fontsource-variable/manrope';
+
+const image = "/ogImage.jpg";
+const description =
+  "dAppBooster is a modern blockchain boilerplate built to quickly get you started with the development of your next Web3 project.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>
+      dAppBooster - Web3 Template For All Your Blockchain Development Needs
+    </title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="Astro" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content="https://dappbooster.dev/" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+	color: var(--textColor);
+    background: var(--primary, #2e3048);
+    max-width: 100vw;
+    overflow-x: hidden;
+	font-family: 'Manrope Variable', sans-serif;
+    font-size: var(--bodyFontSize);
+
+	@media only screen and (max-width: 768px) {
+		font-size: var(--bodyFontSize-sm);
+    }
+
+    ::selection {
+      color: var(--white) !important;
+      background: var(--secondary) !important;
+    }
+
+    a,
+    button {
+      transition: all 0.3s ease-in-out !important;
+      display: block;
+
+      &::before,
+      &::after {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+	a{
+		color: var(--secondaryLightest);
+		text-decoration: none;
+		&:hover,
+		&:focus-visible {
+			color: var(--secondaryLight);
+		}
+	}
+  }
+</style>
