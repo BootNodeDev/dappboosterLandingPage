@@ -5,30 +5,39 @@ import Wrapper from "@components/Wrapper.astro";
 ---
 
 <Wrapper>
-  <header>
-    <a href="/">
-      <img
-        class="logo"
-        src={dAppBoosterLogo.src}
-        alt="dAppBooster - A blockchain boilerplate to kickstart your next Web3 project"
-      />
-    </a>
-    <a
-      href="https://github.com/bootnodedev/dappbooster/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="button"
-      ><span>Launch your <span>next</span> dApp</span> <ChevronRight /></a
-    >
-  </header>
+  <div class="headerWrapper">
+    <header>
+      <a href="/">
+        <img
+          class="logo"
+          src={dAppBoosterLogo.src}
+          alt="dAppBooster - A blockchain boilerplate to kickstart your next Web3 project"
+        />
+      </a>
+      <a
+        href="https://github.com/bootnodedev/dappbooster/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button"
+        ><span>Launch your <span>next</span> dApp</span> <ChevronRight /></a
+      >
+    </header>
+  </div>
 </Wrapper>
 
 <style>
+  .headerWrapper {
+    max-width: 100%;
+    position: relative;
+  }
   header {
     padding: calc(var(--space) * 2) 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
   }
   .logo {
     height: 76px;

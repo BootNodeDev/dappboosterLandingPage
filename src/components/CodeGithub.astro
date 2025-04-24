@@ -1,0 +1,139 @@
+---
+import Copy from "@assets/icons/Copy.astro";
+---
+
+<code>
+  <span id="copyText">npx dappbooster dappBooster-firstDapp</span>
+  <button id="copyButton" onmouseout="outFunc()">
+    <span class="tooltiptext" id="myTooltip"></span>
+    <span id="buttonText"><Copy /> </span>
+  </button>
+
+  <style>
+    code {
+      border-radius: 80px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--space) * 2) calc(var(--space) * 3);
+      background: var(--primaryDark);
+      color: var(--white);
+      line-height: 160%;
+      gap: calc(var(--space) * 2);
+      @media only screen and (max-width: 768px) {
+        font-size: 1.3rem;
+      }
+      button {
+        background: transparent;
+        border: none;
+        color: var(--white);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        position: relative;
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+        &:hover,
+        &:focus-visible {
+          color: var(--secondaryLightest);
+          .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+      .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: var(--black);
+        color: var(--textColor);
+        font-size: 1.2rem;
+        text-align: center;
+        border-radius: 6px;
+        padding: var(--space);
+        position: absolute;
+        z-index: 1;
+        bottom: 150%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: var(--black) transparent transparent transparent;
+      }
+    }
+  </style>
+
+  <script>
+    declare global {
+      interface Window {
+        outFunc: () => void;
+      }
+    }
+
+    window.outFunc = function () {
+      var tooltip = document.getElementById("myTooltip");
+      if (tooltip) {
+        tooltip.innerHTML = "Copy to clipboard";
+      }
+    };
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const copyButton = document.getElementById("copyButton");
+      const copyText = document.getElementById("copyText");
+      const tooltip = document.getElementById("myTooltip");
+
+      if (copyButton) {
+        copyButton.addEventListener("click", function () {
+          // Copy the text inside the text field
+          if (copyText && copyText.textContent) {
+            navigator.clipboard.writeText(copyText.textContent);
+          } else {
+            console.error(
+              "Failed to copy: copyText is null or textContent is null."
+            );
+          }
+
+          // Alert the copied text
+          if (tooltip) {
+            tooltip.innerHTML = "Copied";
+          }
+        });
+      }
+
+      const buttonText = document.getElementById("buttonText");
+
+      if (copyButton && buttonText) {
+        copyButton.addEventListener("click", function () {
+          if (copyText && copyText.textContent) {
+            navigator.clipboard.writeText(copyText.textContent);
+            buttonText.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="12" viewBox="0 0 17 12" fill="none">
+<path d="M16.1458 1.13862L5.90628 11.8045C5.84685 11.8665 5.77626 11.9156 5.69857 11.9492C5.62088 11.9827 5.5376 12 5.4535 12C5.3694 12 5.28612 11.9827 5.20843 11.9492C5.13074 11.9156 5.06016 11.8665 5.00072 11.8045L0.520922 7.13817C0.400837 7.01309 0.333374 6.84344 0.333374 6.66654C0.333374 6.48964 0.400837 6.31999 0.520922 6.19491C0.641006 6.06982 0.803876 5.99955 0.973701 5.99955C1.14353 5.99955 1.3064 6.06982 1.42648 6.19491L5.4535 10.3904L15.2403 0.195356C15.3604 0.0702713 15.5232 -1.31798e-09 15.693 0C15.8629 1.31798e-09 16.0257 0.0702713 16.1458 0.195356C16.2659 0.32044 16.3334 0.490091 16.3334 0.666988C16.3334 0.843884 16.2659 1.01353 16.1458 1.13862Z" fill="#62D45F"/>
+</svg>`; // Ok icon
+            setTimeout(() => {
+              buttonText.innerHTML = ""; // Clear the content
+              const copyIcon = document.createElement("span");
+              copyIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2.19527 2.19528C2.3203 2.07026 2.48987 2.00002 2.66668 2.00002H8.66668C8.84349 2.00002 9.01306 2.07026 9.13808 2.19528C9.26311 2.32031 9.33334 2.48988 9.33334 2.66669V3.33335C9.33334 3.70154 9.63182 4.00002 10 4.00002C10.3682 4.00002 10.6667 3.70154 10.6667 3.33335V2.66669C10.6667 2.13625 10.456 1.62755 10.0809 1.25247C9.70582 0.8774 9.19711 0.666687 8.66668 0.666687H2.66668C2.13624 0.666687 1.62754 0.8774 1.25246 1.25247C0.87739 1.62755 0.666677 2.13625 0.666677 2.66669V8.66669C0.666677 9.19712 0.877391 9.70583 1.25246 10.0809C1.62754 10.456 2.13624 10.6667 2.66668 10.6667H3.33334C3.70153 10.6667 4.00001 10.3682 4.00001 10C4.00001 9.63183 3.70153 9.33335 3.33334 9.33335H2.66668C2.48987 9.33335 2.3203 9.26312 2.19527 9.13809C2.07025 9.01307 2.00001 8.8435 2.00001 8.66669V2.66669C2.00001 2.48988 2.07025 2.32031 2.19527 2.19528ZM6.66668 7.33335C6.66668 6.96516 6.96515 6.66669 7.33334 6.66669H13.3333C13.7015 6.66669 14 6.96516 14 7.33335V13.3334C14 13.7015 13.7015 14 13.3333 14H7.33334C6.96515 14 6.66668 13.7015 6.66668 13.3334V7.33335ZM7.33334 5.33335C6.22877 5.33335 5.33334 6.22878 5.33334 7.33335V13.3334C5.33334 14.4379 6.22877 15.3334 7.33334 15.3334H13.3333C14.4379 15.3334 15.3333 14.4379 15.3333 13.3334V7.33335C15.3333 6.22878 14.4379 5.33335 13.3333 5.33335H7.33334Z" fill="#F7F7F7"/>
+</svg>`;
+              buttonText.appendChild(copyIcon); // Copy icon
+            }, 2000);
+          }
+        });
+      }
+    });
+  </script>
+</code>
