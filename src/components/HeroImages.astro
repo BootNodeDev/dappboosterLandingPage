@@ -1,0 +1,122 @@
+---
+import { Image } from "astro:assets";
+import smokeImage from "@assets/smoke.svg";
+
+import Ghost from "@assets/ghostHero.svg";
+---
+
+<div class="heroImagesWrapper">
+  <div class="ghostWrapper">
+    <Ghost
+      id="ghost"
+      height={233}
+      width={215}
+      aria-labelledby="The dAppBooster ghost icon"
+    />
+  </div>
+
+  <Image
+    id="smoke"
+    src={smokeImage}
+    height={426}
+    width={2560}
+    loading="eager"
+    alt="A floating astronaut in a space suit"
+  />
+</div>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 25px, 0);
+    }
+  }
+
+  @keyframes float2 {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 10px, 0);
+    }
+  }
+
+  .heroImagesWrapper {
+    line-height: 0;
+    position: relative;
+
+    background-color: var(--primaryDark);
+    @media only screen and (max-width: 768px) {
+      padding-top: calc(var(--space) * 20);
+    }
+  }
+
+  .ghostWrapper {
+    height: 233px;
+    width: 215px;
+    position: absolute;
+    bottom: calc(var(--space) * 10);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    @media only screen and (max-width: 1200px) {
+      bottom: calc(var(--space) * 8);
+    }
+    @media only screen and (max-width: 1024px) {
+      bottom: calc(var(--space) * 6);
+    }
+    @media only screen and (max-width: 768px) {
+      bottom: calc(var(--space) * 4);
+      transform: scale(0.8);
+      height: 180px;
+    }
+    @media only screen and (max-width: 480px) {
+      bottom: calc(var(--space) * 4);
+      transform: scale(0.7);
+      height: 130px;
+    }
+  }
+  #ghost {
+    animation: float linear 2.5s infinite alternate;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 215px;
+    z-index: 1;
+  }
+  #smoke {
+    animation: float2 linear 2.5s infinite alternate;
+    object-fit: cover;
+    object-position: bottom center;
+    width: 100%;
+    height: 400px;
+    padding-top: calc(var(--space) * 2);
+    @media only screen and (max-width: 1200px) {
+      height: 350px;
+    }
+    @media only screen and (max-width: 1024px) {
+      height: 300px;
+    }
+    @media only screen and (max-width: 768px) {
+      height: 200px;
+    }
+    @media only screen and (max-width: 480px) {
+      height: 100px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ghost,
+    #smoke {
+      @apply animate-none;
+    }
+  }
+</style>

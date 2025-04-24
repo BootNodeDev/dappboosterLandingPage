@@ -1,0 +1,56 @@
+---
+const { variant, href, ariaLabel } = Astro.props;
+---
+
+<a
+  class={variant}
+  href={href}
+  aria-label={ariaLabel || undefined}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <slot />
+</a>
+
+<style>
+  a {
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 500;
+    padding: calc(var(--space) * 2) calc(var(--space) * 4);
+    border-radius: 4px;
+    gap: calc(var(--space) * 2);
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  a.primary {
+    background-color: var(--secondaryLight);
+    color: var(--textColor);
+    &:hover,
+    &:focus-visible {
+      background-color: var(--secondary);
+    }
+  }
+
+  a.secondary {
+    background-color: var(--primaryLightest);
+    color: var(--textColor);
+    &:hover,
+    &:focus-visible {
+      background-color: var(--primaryLight);
+    }
+  }
+
+  a.primary:hover,
+  a.secondary:hover {
+    transform: translateY(-2px);
+  }
+</style>

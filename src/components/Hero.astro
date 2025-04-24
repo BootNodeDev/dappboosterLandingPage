@@ -1,7 +1,121 @@
 ---
 import Wrapper from "@components/Wrapper.astro";
+import HeroImages from "@components/HeroImages.astro";
+import Button from "@components/Button.astro";
+import { externalLinks } from "@/constants/extenalLinks";
+import CodeGithub from "@components/CodeGithub.astro";
 ---
 
 <section>
-  <Wrapper> Hero </Wrapper>
+  <HeroImages />
+  <Wrapper>
+    <div class="content">
+      <div class="textWrapper">
+        <h1>Boost dApp development on the Blockchain</h1>
+        <p>
+          A modern starter kit built with Next.js to quickly get started with
+          your next web3 project.
+        </p>
+      </div>
+      <div class="buttons">
+        {
+          externalLinks.map(({ label, icon: Icon, href }, index) => (
+            <Button
+              as="link"
+              href={href}
+              variant={index === 0 ? "primary" : "secondary"}
+              ariaLabel={label}
+            >
+              <Icon />
+              {label}
+            </Button>
+          ))
+        }
+      </div>
+      <CodeGithub />
+    </div>
+  </Wrapper>
 </section>
+
+<style>
+  section {
+    position: relative;
+  }
+
+  .content {
+    max-width: 670px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--space) * 4);
+    margin-top: calc(var(--space) * -2);
+    position: relative;
+    z-index: 100;
+    @media only screen and (max-width: 1200px) {
+      max-width: 600px;
+    }
+    @media only screen and (max-width: 1024px) {
+      max-width: 550px;
+    }
+    @media only screen and (max-width: 768px) {
+      max-width: 400px;
+      margin-top: calc(var(--space) * 2);
+      align-items: normal;
+      gap: calc(var(--space) * 3);
+    }
+    @media only screen and (max-width: 480px) {
+      max-width: 370px;
+    }
+    h1 {
+      font-size: 5.2rem;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 120%;
+      text-align: center;
+      margin: 0;
+      @media only screen and (max-width: 1200px) {
+        font-size: 4.8rem;
+      }
+      @media only screen and (max-width: 1024px) {
+        font-size: 4.2rem;
+      }
+      @media only screen and (max-width: 768px) {
+        font-size: 3.6rem;
+      }
+      @media only screen and (max-width: 480px) {
+        font-size: 2.8rem;
+      }
+    }
+    p {
+      color: var(--Light-Grey);
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 160%;
+      max-width: 480px;
+      text-align: center;
+      margin: 0 auto;
+      @media only screen and (max-width: 768px) {
+        font-size: 1.6rem;
+      }
+    }
+    .textWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--space) / 2);
+      align-items: center;
+      @media only screen and (max-width: 768px) {
+        gap: var(--space);
+      }
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: calc(var(--space) * 2);
+      @media only screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: var(--space);
+      }
+    }
+  }
+</style>
