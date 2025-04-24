@@ -1,0 +1,118 @@
+---
+import Wrapper from "@components/Wrapper.astro";
+import Bn from "@assets/Bn.astro";
+import Telegram from "@assets/icons/Telegram.astro";
+import Github from "@assets/icons/Github.astro";
+import X from "@assets/icons/X.astro";
+import LinkedIn from "@assets/icons/Linkedin.astro";
+import { externalLinks } from "@/constants/extenalLinks";
+
+const socialItems = [
+  { label: "Telegram", icon: Telegram, href: "https://t.me/dAppBooster" },
+  { label: "Github", icon: Github, href: "https://github.com/BootNodeDev" },
+  { label: "Twitter", icon: X, href: "https://twitter.com/bootnodedev" },
+  {
+    label: "LinkedIn",
+    icon: LinkedIn,
+    href: "https://www.linkedin.com/company/bootnode-dev/",
+  },
+];
+---
+
+<Wrapper>
+  <footer>
+    <div class="leftFooter">
+      <a
+        href="https://www.bootnode.dev/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bn"
+      >
+        Built by
+        <Bn />
+      </a>
+      <div class="socials">
+        {
+          socialItems.map(({ label, icon: Icon, href }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={label}
+            >
+              <Icon />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div class="rightFooter">
+      {
+        externalLinks.map(({ label, icon: Icon, href }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={label}
+          >
+            {label}
+          </a>
+        ))
+      }
+    </div>
+  </footer>
+</Wrapper>
+
+<style>
+  footer {
+    padding: calc(var(--space) * 2) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--bodyFontSize-sm);
+    color: var(--grey);
+    @media only screen and (max-width: 768px) {
+      justify-content: center;
+    }
+    a {
+      color: var(--grey);
+      text-decoration: none;
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        color: var(--white);
+      }
+    }
+  }
+  .leftFooter {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--space) * 2);
+    a.bn {
+      display: flex;
+      align-items: center;
+      gap: var(--space);
+    }
+  }
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--space) * 2);
+    line-height: 0;
+    &:before {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 1.5rem;
+      background: var(--primaryLight);
+    }
+  }
+  .rightFooter {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--space) * 3);
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+</style>
