@@ -11,6 +11,7 @@
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
   },
   "dependencies": {
+    "@astrojs/vercel": "^8.1.4",
     "@fontsource-variable/manrope": "^5.2.5",
     "astro": "^5.7.4"
   },
