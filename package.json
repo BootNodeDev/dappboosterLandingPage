@@ -13,7 +13,8 @@
   "dependencies": {
     "@astrojs/vercel": "^8.1.4",
     "@fontsource-variable/manrope": "^5.2.5",
-    "astro": "^5.7.4"
+    "astro": "^5.7.4",
+    "sharp": "^0.34.1"
   },
   "devDependencies": {
     "@eslint/css": "^0.7.0",
@@ -26,5 +27,11 @@
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
     "typescript-eslint": "^8.31.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   }
 }
