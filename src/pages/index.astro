@@ -13,8 +13,8 @@ import Analytics from "@vercel/analytics/astro";
 <Layout>
   <Header />
   <main>
-    <Hero />
     <div class="content">
+      <Hero />
       <Intro />
       <Features />
       <Banner />
@@ -23,40 +23,43 @@ import Analytics from "@vercel/analytics/astro";
   </main>
   <Footer />
   <Analytics />
+
+  <style>
+    :root {
+      --primary: #2e3048;
+      --primaryLight: #4b4d60;
+      --primaryLightest: #5f6178;
+      --primaryDark: #292b43;
+      --primaryDarkest: #24263d;
+      --secondary: #692581;
+      --secondaryLight: #8b46a4;
+      --secondaryLightest: #c670e5;
+      --textColor: #fafbfc;
+      --white: #ffffff;
+      --black: #131521;
+      --grey: #c5c2cb;
+      --greyLight: #e2e0e7;
+      --greyLightest: #f7f7f7;
+
+      --bodyFontSize: 1.6rem;
+      --bodyFontSize-sm: 1.4rem;
+      --bodyFontSize-xs: 1.2rem;
+
+      --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+      --maxWidth: 1196px;
+      --space: 8px;
+    }
+
+    html {
+      font-size: 10px;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--space) * 7);
+      @media only screen and (max-width: 768px) {
+        gap: calc(var(--space) * 5);
+      }
+    }
+  </style>
 </Layout>
-
-<style>
-  :root {
-    --primary: #2e3048;
-    --primaryLight: #4b4d60;
-    --primaryLightest: #5f6178;
-    --primaryDark: #292b43;
-    --primaryDarkest: #24263d;
-    --secondary: #692581;
-    --secondaryLight: #8b46a4;
-    --secondaryLightest: #c670e5;
-    --textColor: #fafbfc;
-    --white: #ffffff;
-    --black: #131521;
-    --grey: #c5c2cb;
-    --greyLight: #e2e0e7;
-    --greyLightest: #f7f7f7;
-
-    --bodyFontSize: 1.6rem;
-    --bodyFontSize-sm: 1.4rem;
-    --bodyFontSize-xs: 1.2rem;
-
-    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
-    --maxWidth: 1196px;
-    --space: 8px;
-  }
-
-  html {
-    font-size: 10px;
-  }
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--space) * 7);
-  }
-</style>

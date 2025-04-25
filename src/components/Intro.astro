@@ -1,7 +1,197 @@
 ---
+import { Image } from "astro:assets";
 import Wrapper from "@components/Wrapper.astro";
+import Clock from "@assets/icons/clockClockwise.svg";
+import Lightning from "@assets/icons/lightning.svg";
+import Stack from "@assets/icons/stack.svg";
+const introItema = [
+  {
+    title: "Rapid Project Setup",
+    icon: Clock,
+    description:
+      "Kickstart your next Web3 app in minutes with pre-built smart contract templates and a full-stack boilerplate.",
+  },
+  {
+    title: "EVM Chain Support",
+    icon: Lightning,
+    description:
+      "Seamlessly deploy on any EVM-compatible network like Ethereum, Polygon, Arbitrum, and more.",
+  },
+  {
+    title: "Built-in Developer Tools",
+    icon: Stack,
+    description:
+      "Enjoy seamless wallet integration and robust authentication—ready to use without any extra setup required.",
+  },
+];
 ---
 
-<section>
-  <Wrapper> Intro </Wrapper>
-</section>
+<Wrapper>
+  <section>
+    <div class="TitleWrapper">
+      <div class="title">
+        <div class="tag">Build with Confidence</div>
+        <h2>Web3 developer-first tooling</h2>
+      </div>
+      <p class="description">
+        dAppBooster is built by developers, for developers. From intuitive CLI
+        tools to seamless local testing environments, everything is designed to
+        remove friction and accelerate your workflow.
+      </p>
+    </div>
+    <div class="listBox">
+      {
+        introItema.map(({ title, icon, description }) => (
+          <div class="box">
+            <div class="icon">
+              <Image
+                src={icon}
+                height={32}
+                width={32}
+                loading="lazy"
+                alt={title}
+              />
+            </div>
+            <div class="content">
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Wrapper>
+
+<style>
+  section {
+    padding: calc(var(--space) * 7) calc(var(--space) * 5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--space) * 5);
+    background-color: var(--primaryDark);
+    border-radius: 8px;
+    @media only screen and (max-width: 1024px) {
+      padding: calc(var(--space) * 6) calc(var(--space) * 4);
+      gap: calc(var(--space) * 5);
+    }
+    @media only screen and (max-width: 768px) {
+      padding: calc(var(--space) * 5) calc(var(--space) * 2)
+        calc(var(--space) * 3);
+      gap: calc(var(--space) * 4);
+    }
+  }
+  .TitleWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--space) * 2);
+    text-align: center;
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: calc(var(--space) / 2);
+      .tag {
+        font-size: var(--bodyFontSize-sm);
+        color: var(--secondaryLight);
+        padding: calc(var(--space) / 2) var(--space);
+        background-color: var(--primary);
+        border-radius: 4px;
+      }
+      h2 {
+        font-size: 4.2rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin: 0;
+        color: var(--white);
+        @media only screen and (max-width: 1024px) {
+          font-size: 3.6rem;
+        }
+        @media only screen and (max-width: 768px) {
+          font-size: 2.8rem;
+        }
+        @media only screen and (max-width: 480px) {
+          font-size: 2.4rem;
+        }
+      }
+    }
+    p {
+      opacity: 0.8;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 800px;
+
+      @media only screen and (max-width: 480px) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .listBox {
+    display: flex;
+    gap: calc(var(--space) * 3);
+    align-self: stretch;
+    @media only screen and (max-width: 1024px) {
+      gap: calc(var(--space) * 2);
+    }
+    @media only screen and (max-width: 768px) {
+      gap: calc(var(--space) * 1);
+      flex-direction: column;
+    }
+    .box {
+      display: flex;
+      padding: calc(var(--space) * 3);
+      flex-direction: column;
+      border-radius: 8px;
+      border: 1px solid var(--primaryLight);
+      gap: calc(var(--space) * 2);
+      @media only screen and (max-width: 768px) {
+        gap: calc(var(--space) * 2);
+        padding: calc(var(--space) * 3);
+        flex-direction: row;
+        align-items: center;
+      }
+      @media only screen and (max-width: 480px) {
+        padding: calc(var(--space) * 2);
+        flex-direction: column;
+        align-items: first baseline;
+      }
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: var(--primaryDarkest);
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--space) / 2);
+
+        h3 {
+          font-weight: 700;
+          line-height: 1.2;
+          margin: 0;
+          font-size: 1.6rem;
+          @media only screen and (max-width: 768px) {
+            font-size: 1.4rem;
+          }
+        }
+        p {
+          opacity: 0.6;
+          line-height: 1.5;
+          margin: 0;
+          font-size: 1.6rem;
+          @media only screen and (max-width: 768px) {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+</style>
