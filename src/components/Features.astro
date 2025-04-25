@@ -49,8 +49,8 @@ const features = [
 ];
 ---
 
-<section>
-  <Wrapper>
+<Wrapper>
+  <section>
     <div class="titleWrapper">
       <h2>Powerful features to help you boost your web3 development</h2>
       <p>
@@ -66,19 +66,138 @@ const features = [
             <div class="icon">
               <Image
                 src={icon}
-                height={32}
-                width={32}
+                height={24}
+                width={24}
                 loading="lazy"
                 alt={title}
               />
             </div>
-            <h3>{title}</h3>
-            <p>{description}</p>
+            <div class="content">
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </div>
           </div>
         ))
       }
     </div>
-  </Wrapper>
-</section>
+  </section>
+</Wrapper>
 
-<style></style>
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space) * 7);
+    @media only screen and (max-width: 768px) {
+      gap: calc(var(--space) * 3);
+    }
+  }
+  .titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(var(--space) * 4);
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+      gap: var(--space);
+      align-items: flex-start;
+    }
+    h2 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--white);
+      max-width: 530px;
+      @media only screen and (max-width: 1200px) {
+        font-size: 3.2rem;
+      }
+      @media only screen and (max-width: 1024px) {
+        font-size: 2.8rem;
+      }
+      @media only screen and (max-width: 768px) {
+        font-size: 2.4rem;
+      }
+      @media only screen and (max-width: 480px) {
+        font-size: 2.1rem;
+      }
+    }
+    p {
+      opacity: 0.8;
+      color: var(--white);
+      font-size: var(--bodyFontSize);
+      line-height: 1.5;
+      max-width: 480px;
+      margin: 0;
+      @media only screen and (max-width: 1024px) {
+        font-size: var(--bodyFontSize-sm);
+        max-width: 360px;
+      }
+      @media only screen and (max-width: 768px) {
+        max-width: 580px;
+      }
+    }
+  }
+  .featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--space) * 3);
+    @media only screen and (max-width: 768px) {
+      gap: var(--space);
+    }
+    .featureItem {
+      display: flex;
+      padding: calc(var(--space) * 3);
+      flex-direction: column;
+      border-radius: 8px;
+      border: 1px solid rgba(75, 77, 96, 0.5);
+      gap: calc(var(--space) * 2);
+      @media only screen and (max-width: 768px) {
+        gap: calc(var(--space) * 2);
+        padding: calc(var(--space) * 3);
+        flex-direction: row;
+        align-items: center;
+      }
+      @media only screen and (max-width: 480px) {
+        padding: calc(var(--space) * 2);
+        flex-direction: column;
+        align-items: first baseline;
+      }
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid var(--primaryLight);
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--space) / 2);
+
+        h3 {
+          font-weight: 700;
+          line-height: 1.2;
+          margin: 0;
+          font-size: var(--bodyFontSize-sm);
+          @media only screen and (max-width: 768px) {
+            font-size: var(--bodyFontSize-sm);
+          }
+        }
+        p {
+          opacity: 0.6;
+          line-height: 1.5;
+          margin: 0;
+          font-size: var(--bodyFontSize-sm);
+          @media only screen and (max-width: 768px) {
+            font-size: var(--bodyFontSize-xs);
+          }
+        }
+      }
+    }
+  }
+</style>
