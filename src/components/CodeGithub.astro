@@ -51,7 +51,7 @@ import Copy from "@assets/icons/Copy.astro";
         width: 120px;
         background-color: var(--black);
         color: var(--textColor);
-        font-size: 1.2rem;
+        font-size: var(--bodyFontSize-xs);
         text-align: center;
         border-radius: 6px;
         padding: var(--space);
@@ -103,7 +103,7 @@ import Copy from "@assets/icons/Copy.astro";
             navigator.clipboard.writeText(copyText.textContent);
           } else {
             console.error(
-              "Failed to copy: copyText is null or textContent is null."
+              "Failed to copy: copyText is null or textContent is null.",
             );
           }
 
