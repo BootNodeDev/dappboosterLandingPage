@@ -61,6 +61,7 @@ const introItema = [
         ))
       }
     </div>
+    <div class="circle"></div>
   </section>
 </Wrapper>
 
@@ -73,6 +74,7 @@ const introItema = [
     gap: calc(var(--space) * 5);
     background-color: var(--primaryDark);
     border-radius: 8px;
+    position: relative;
     @media only screen and (max-width: 1024px) {
       padding: calc(var(--space) * 6) calc(var(--space) * 4);
       gap: calc(var(--space) * 5);
@@ -194,5 +196,16 @@ const introItema = [
         }
       }
     }
+  }
+  .circle {
+    position: absolute;
+    top: -40%;
+    left: -15%;
+    width: 715px;
+    height: 715px;
+    border-radius: 50%;
+    z-index: -1;
+    background: rgba(181, 28, 123, 0.1);
+    filter: blur(250px);
   }
 </style>

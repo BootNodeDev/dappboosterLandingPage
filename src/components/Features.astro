@@ -1,7 +1,84 @@
 ---
+import { Image } from "astro:assets";
 import Wrapper from "@components/Wrapper.astro";
+
+import Wall from "@assets/icons/wall.svg";
+import Plugs from "@assets/icons/plugs.svg";
+import Globe from "@assets/icons/globe.svg";
+import Puzzle from "@assets/icons/puzzlePiece.svg";
+import Magnify from "@assets/icons/magnifyingGlass.svg";
+import Rocket from "@assets/icons/rocketLaunch.svg";
+
+const features = [
+  {
+    title: "Scalable Project Structure",
+    icon: Wall,
+    description:
+      "A flexible and modular setup designed for modern dApp development. Manage contracts, ABIs, subgraphs, and reusable components with clarity and control—no clutter, just clean architecture.",
+  },
+  {
+    title: "Seamless Wallet Integration",
+    icon: Plugs,
+    description:
+      "Out-of-the-box support for ConnectKit, RainbowKit, and Web3Modal. Connect users with popular wallets in seconds—no extra configuration or libraries needed.",
+  },
+  {
+    title: "Multi-Chain Ready by Default",
+    icon: Globe,
+    description:
+      "Build for any EVM-compatible chain with native multi-chain support. Configure networks effortlessly and enjoy auto-generated, type-safe hooks that make cross-chain development intuitive.",
+  },
+  {
+    title: "Reusable Decentralized Components",
+    icon: Puzzle,
+    description:
+      "Access a library of pre-built, tree-shakable components every dApp needs—from connect buttons to auth handlers—fully optimized for performance and customization.",
+  },
+  {
+    title: "Typed Multi-Chain Subgraph Support",
+    icon: Magnify,
+    description:
+      "Query your data like a pro with built-in support for multi-chain subgraphs. Auto-generated, type-safe hooks give you reliable access to on-chain data—fast and developer-friendly.",
+  },
+  {
+    title: "Ready to Build, From the Start",
+    icon: Rocket,
+    description:
+      "Skip the boilerplate. DAppBooster gives you a clean, scalable project structure that helps you focus on building—immediately.",
+  },
+];
 ---
 
 <section>
-  <Wrapper> Features </Wrapper>
+  <Wrapper>
+    <div class="titleWrapper">
+      <h2>Powerful features to help you boost your web3 development</h2>
+      <p>
+        Everything you need to go from idea to live dApp—fast. DAppBooster
+        removes setup friction and provides production-ready Web3 essentials out
+        of the box.
+      </p>
+    </div>
+    <div class="featuresGrid">
+      {
+        features.map(({ title, icon, description }) => (
+          <div class="featureItem">
+            <div class="icon">
+              <Image
+                src={icon}
+                height={32}
+                width={32}
+                loading="lazy"
+                alt={title}
+              />
+            </div>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
 </section>
+
+<style></style>
