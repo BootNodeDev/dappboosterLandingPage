@@ -1,7 +1,307 @@
 ---
 import Wrapper from "@components/Wrapper.astro";
+
+const FAQs = [
+  {
+    question: "What is dAppBooster, and how can it help me build a DApp?",
+    answer:
+      "dAppBooster is an open-source tool designed to simplify DApp development. It provides out-of-the-box features like wallet integration, authentication, and developer-friendly templates, allowing you to focus on your app's unique value without worrying about basic setup tasks.",
+  },
+  {
+    question: "Do I need prior Web3 development experience to use dAppBooster?",
+    answer:
+      "LNot necessarily! dAppBooster is beginner-friendly and includes detailed documentation to guide you through setup and customization. However, familiarity with JavaScript and blockchain concepts will enhance your experience.",
+  },
+  {
+    question: "Can I customize the features provided by dAppBooster?",
+    answer:
+      "Absolutely! dAppBooster is highly modular, enabling you to tailor authentication methods, wallet integrations, and UI components to match your DApp's specific requirements.",
+  },
+  {
+    question: "Do I need to pay to use dAppBooster?",
+    answer:
+      "No, dAppBooster is completely free and open-source. You can access and use it without any licensing costs, making it an excellent tool for developers at any level.",
+  },
+  {
+    question: "How do I get started with dAppBooster?",
+    answer:
+      "Start by running the command npx dappbooster dappBooster-firstDapp in your terminal. Then, follow the instructions at <a href='https://docs.dappbooster.dev/introduction/getting-started'>dAppBooster Docs</a>.",
+  },
+  {
+    question:
+      "Is dAppBooster suitable for scaling my DApp to handle increased traffic?",
+    answer:
+      "While dAppBooster helps with initial development, scalability largely depends on your chosen blockchain and infrastructure. dAppBooster’s flexible setup ensures compatibility with various scaling solutions, making it a great starting point for your DApp.",
+  },
+];
 ---
 
-<section>
-  <Wrapper> FAQ </Wrapper>
-</section>
+<Wrapper>
+  <section>
+    <div class="faqIntro">
+      <div class="title">
+        <div class="tag">Building dApps with dAppBooster</div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <p class="description">
+        Dive into the essentials of creating powerful decentralized applications
+        with dAppBooster. Here are answers to common questions to help you get
+        started seamlessly.
+      </p>
+    </div>
+
+    <div class="faqs">
+      <ul>
+        {
+          FAQs.map(({ question, answer }) => (
+            <li class="faqItem">
+              <button class="accordionButton">
+                <span class="accordionIcon" aria-hidden="true" />
+                <span class="accordionHeader">{question}</span>
+              </button>
+              <p class="accordionContent" set:html={answer} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Wrapper>
+
+<style>
+  section {
+    margin: calc(var(--space) * 10) 0 calc(var(--space) * 7);
+    display: flex;
+    justify-content: space-between;
+    gap: calc(var(--space) * 4);
+    @media only screen and (max-width: 1000px) {
+      flex-direction: column;
+      gap: calc(var(--space) * 3);
+    }
+    @media only screen and (max-width: 768px) {
+      gap: calc(var(--space) * 2);
+    }
+  }
+  .faqIntro {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: calc(var(--space) * 2);
+    width: 487px;
+    max-width: 100%;
+    @media only screen and (max-width: 1000px) {
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      gap: var(--space);
+    }
+  }
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--space) / 2);
+    align-items: flex-start;
+    .tag {
+      font-size: var(--bodyFontSize-sm);
+      color: var(--secondaryLightest);
+      padding: calc(var(--space) / 2) var(--space);
+      background-color: var(--primaryDark);
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+    h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--white);
+      @media only screen and (max-width: 1024px) {
+        font-size: 2.4rem;
+      }
+      @media only screen and (max-width: 768px) {
+        font-size: 2.1rem;
+      }
+      @media only screen and (max-width: 480px) {
+        font-size: 2rem;
+      }
+    }
+  }
+  p.description {
+    opacity: 0.8;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 490px;
+    width: 100%;
+    font-size: var(--bodyFontSize);
+    @media only screen and (max-width: 1000px) {
+      max-width: 690px;
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: var(--bodyFontSize-sm);
+    }
+  }
+
+  .faqs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 630px;
+    width: 100%;
+    margin-top: calc(var(--space) * 2);
+
+    > ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: calc(var(--space) * 3);
+      @media only screen and (max-width: 768px) {
+        gap: calc(var(--space) * 2);
+      }
+      .faqItem {
+        list-style: none;
+        width: 100%;
+        color: var(--texColor);
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--space) * 2);
+        align-items: end;
+        @media only screen and (max-width: 768px) {
+          gap: var(--space);
+        }
+        &.active {
+          .accordionButton {
+            .accordionIcon {
+              &:before {
+                transform: translate(-50%, -50%) rotate(360deg);
+              }
+              &:after {
+                transform: translate(-50%, -50%) rotate(0deg);
+              }
+            }
+          }
+          .accordionContent {
+            height: auto;
+            opacity: 0.8;
+            transform: scaleY(1);
+          }
+        }
+      }
+    }
+    .accordionButton {
+      color: var(--textColor);
+      font-size: var(--bodyFontSize);
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: left;
+      padding: 0;
+      border: none;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      cursor: pointer;
+      @media only screen and (max-width: 768px) {
+        font-size: var(--bodyFontSize-sm);
+      }
+      .accordionHeader {
+        width: 90%;
+        display: block;
+      }
+      .accordionIcon {
+        width: 18px;
+        height: 18px;
+        position: relative;
+        z-index: 1;
+        &:before {
+          /* left line */
+          content: "";
+          width: 18px;
+          height: 2px;
+          background:
+            linear-gradient(
+              90deg,
+              #662681 0%,
+              #692581 15%,
+              #722381 26%,
+              #822080 36%,
+              #931c80 43%,
+              #b51c7b 61.99%,
+              #d91d75 86.99%,
+              #e71d73 99.99%
+            ),
+            #d9d9d9;
+          opacity: 1;
+          border-radius: 2px;
+          position: absolute;
+          display: block;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: transform 0.5s;
+        }
+        &:after {
+          /* right line */
+          content: "";
+          width: 18px;
+          height: 2px;
+          background:
+            linear-gradient(
+              90deg,
+              #662681 0%,
+              #692581 15%,
+              #722381 26%,
+              #822080 36%,
+              #931c80 43%,
+              #b51c7b 61.99%,
+              #d91d75 86.99%,
+              #e71d73 99.99%
+            ),
+            #d9d9d9;
+          opacity: 1;
+          border-radius: 2px;
+          position: absolute;
+          display: block;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(90deg);
+          transition: transform 0.5s;
+        }
+      }
+    }
+    .accordionContent {
+      width: 90%;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      color: var(--textColor);
+      font-size: var(--bodyFontSize-sm);
+      line-height: 1.5;
+      overflow: hidden;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition:
+        opacity 0.3s,
+        transform 0.3s,
+        padding-bottom 0.3s;
+    }
+  }
+</style>
+
+<script>
+  const faqItems = document.querySelectorAll(".faqItem");
+  faqItems.forEach((item) => {
+    const button = item.querySelector(".accordionButton");
+    if (button) {
+      button.addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    }
+  });
+</script>

@@ -5,7 +5,11 @@ const { variant = "common" } = Astro.props;
 
 <code class={variant}>
   <span class="copyText">npx dappbooster dappBooster-firstDapp</span>
-  <button class="copyButton" onmouseout="outFunc()">
+  <button
+    class="copyButton"
+    onmouseout="outFunc()"
+    aria-label="Copy to clipboard"
+  >
     <span class="tooltiptext myTooltip" id="myTooltip"></span>
     <span class="buttonText"><Copy /> </span>
   </button>
