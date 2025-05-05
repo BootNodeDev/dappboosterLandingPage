@@ -1,7 +1,151 @@
 ---
+import { Image } from "astro:assets";
 import Wrapper from "@components/Wrapper.astro";
+import CodeGithub from "@components/CodeGithub.astro"; // Ensure the path is correct
+import { externalLinks } from "@/constants/extenalLinks";
+import Button from "@components/Button.astro";
+
+import Booster from "@assets/icons/booster.svg";
+import BannerBg from "@assets/icons/bannerBg.svg";
 ---
 
-<section>
-  <Wrapper> Banner </Wrapper>
-</section>
+<Wrapper>
+  <section>
+    <Image
+      class="image"
+      src={Booster}
+      height={188}
+      width={120}
+      loading="lazy"
+      alt="dAppBooster icon"
+    />
+    <div class="content">
+      <h3>Start building your next Web3 project today</h3>
+      <p>
+        Kickstart your Web3 development journey effortlessly. Run the command
+        below to launch your project or explore our comprehensive documentation
+        for guidance.
+      </p>
+      <div class="actions">
+        <CodeGithub variant="secondaryLight" />
+        {
+          externalLinks
+            .filter(({ label }) => label.toLowerCase() === "docs")
+            .map(({ label, icon: Icon, href }) => (
+              <Button href={href} variant="secondary" title={label}>
+                <Icon />
+                {label}
+              </Button>
+            ))
+        }
+      </div>
+    </div>
+    <Image
+      class="bg"
+      src={BannerBg}
+      height={300}
+      width={703}
+      loading="lazy"
+      alt="dAppBooster icon"
+    />
+  </section>
+</Wrapper>
+
+<style>
+  section {
+    position: relative;
+    background-color: var(--primaryDark);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--space) * 6);
+    gap: calc(var(--space) * 10);
+    @media only screen and (max-width: 1000px) {
+      gap: calc(var(--space) * 6);
+      padding: calc(var(--space) * 6) calc(var(--space) * 4);
+    }
+    @media only screen and (max-width: 768px) {
+      padding: calc(var(--space) * 6) calc(var(--space) * 4);
+      text-align: center;
+    }
+    @media only screen and (max-width: 480px) {
+      padding: calc(var(--space) * 4) calc(var(--space) * 2);
+    }
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      height: 100%;
+      width: auto;
+    }
+    .image {
+      position: relative;
+      z-index: 1;
+      margin-left: calc(var(--space) * 4);
+      @media only screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--space) * 2);
+      max-width: 800px;
+      width: 100%;
+      @media only screen and (max-width: 768px) {
+        align-items: center;
+      }
+      h3 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        line-height: 120%;
+        margin: 0;
+        @media only screen and (max-width: 768px) {
+          font-size: 2rem;
+        }
+      }
+      p {
+        font-size: 1.6rem;
+        line-height: 150%;
+        margin: 0;
+        opacity: 0.8;
+        @media only screen and (max-width: 768px) {
+          font-size: 1.4rem;
+        }
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: calc(var(--space) * 2);
+        margin-top: calc(var(--space) * 2);
+        @media only screen and (max-width: 768px) {
+          gap: var(--space);
+          margin-top: 0;
+        }
+        @media only screen and (max-width: 570px) {
+          flex-direction: column;
+          align-items: unset;
+        }
+        button {
+          background: transparent;
+          border: none;
+          color: var(--white);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          position: relative;
+          line-height: 0;
+          svg {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+  }
+</style>

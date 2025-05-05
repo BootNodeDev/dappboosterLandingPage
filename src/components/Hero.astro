@@ -21,10 +21,9 @@ import CodeGithub from "@components/CodeGithub.astro";
         {
           externalLinks.map(({ label, icon: Icon, href }, index) => (
             <Button
-              as="link"
               href={href}
               variant={index === 0 ? "primary" : "secondary"}
-              ariaLabel={label}
+              title={label}
             >
               <Icon />
               {label}
@@ -52,6 +51,9 @@ import CodeGithub from "@components/CodeGithub.astro";
     margin-top: calc(var(--space) * -1);
     position: relative;
     z-index: 100;
+    > code {
+      margin: 0 auto;
+    }
     @media only screen and (max-width: 1200px) {
       max-width: 600px;
     }
@@ -63,10 +65,9 @@ import CodeGithub from "@components/CodeGithub.astro";
       margin-top: calc(var(--space) * 2);
       align-items: normal;
       gap: calc(var(--space) * 3);
+      width: 100%;
     }
-    @media only screen and (max-width: 480px) {
-      max-width: 370px;
-    }
+
     h1 {
       font-size: 5.2rem;
       font-style: normal;

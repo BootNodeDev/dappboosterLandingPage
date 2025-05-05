@@ -1,11 +1,11 @@
 ---
-const { variant, href, ariaLabel } = Astro.props;
+const { variant, href, title } = Astro.props;
 ---
 
 <a
   class={variant}
   href={href}
-  aria-label={ariaLabel || undefined}
+  title={title || undefined}
   target="_blank"
   rel="noopener noreferrer"
 >
