@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import ChevronRight from "@/assets/icons/ChevronRight.astro";
 import dAppBoosterLogo from "@assets/dAppBoosterLogo.svg";
 import Wrapper from "@components/Wrapper.astro";
@@ -8,10 +9,13 @@ import Wrapper from "@components/Wrapper.astro";
   <div class="headerWrapper">
     <header>
       <a href="/">
-        <img
+        <Image
           class="logo"
-          src={dAppBoosterLogo.src}
-          alt="dAppBooster - A blockchain boilerplate to kickstart your next Web3 project"
+          src={dAppBoosterLogo}
+          height={76}
+          width={190}
+          loading="eager"
+          alt="AppBooster - A blockchain boilerplate to kickstart your next Web3 project"
         />
       </a>
       <a
