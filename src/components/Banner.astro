@@ -66,6 +66,7 @@ import BannerBg from "@assets/icons/bannerBg.svg";
     }
     @media only screen and (max-width: 768px) {
       padding: calc(var(--space) * 6) calc(var(--space) * 4);
+      text-align: center;
     }
     @media only screen and (max-width: 480px) {
       padding: calc(var(--space) * 4) calc(var(--space) * 2);
@@ -95,7 +96,7 @@ import BannerBg from "@assets/icons/bannerBg.svg";
       max-width: 800px;
       width: 100%;
       @media only screen and (max-width: 768px) {
-        align-items: flex-start;
+        align-items: center;
       }
       h3 {
         font-size: 2.8rem;
@@ -120,12 +121,13 @@ import BannerBg from "@assets/icons/bannerBg.svg";
         align-items: center;
         gap: calc(var(--space) * 2);
         margin-top: calc(var(--space) * 2);
-        width: 100%;
         @media only screen and (max-width: 768px) {
-          flex-direction: column;
           gap: var(--space);
-          align-items: flex-start;
           margin-top: 0;
+        }
+        @media only screen and (max-width: 570px) {
+          flex-direction: column;
+          align-items: unset;
         }
         button {
           background: transparent;
