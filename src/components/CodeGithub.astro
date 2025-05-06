@@ -4,7 +4,7 @@ const { variant = "common" } = Astro.props;
 ---
 
 <code class={variant}>
-  <span class="copyText">npx dappbooster dappBooster-firstDapp</span>
+  <span class="copyText">pnpm dlx dappbooster dAppBoosterFirstdApp</span>
   <button
     class="copyButton"
     onmouseout="outFunc()"
@@ -126,7 +126,7 @@ const { variant = "common" } = Astro.props;
             navigator.clipboard.writeText(copyText.textContent);
           } else {
             console.error(
-              "Failed to copy: copyText is null or textContent is null."
+              "Failed to copy: copyText is null or textContent is null.",
             );
           }
 
