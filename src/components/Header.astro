@@ -8,23 +8,25 @@ import Wrapper from "@components/Wrapper.astro";
 <Wrapper>
   <div class="headerWrapper">
     <header>
-      <a href="/">
-        <Image
-          class="logo"
-          src={dAppBoosterLogo}
-          height={76}
-          width={190}
-          loading="eager"
-          alt="AppBooster - A blockchain boilerplate to kickstart your next Web3 project"
-        />
-      </a>
-      <a
-        href="https://demo.dappbooster.dev/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="button"
-        ><span>Launch your <span>next</span> dApp</span> <ChevronRight /></a
-      >
+      <nav aria-label="Main navigation">
+        <a href="/">
+          <Image
+            class="logo"
+            src={dAppBoosterLogo}
+            height={76}
+            width={190}
+            loading="eager"
+            alt="AppBooster - A blockchain boilerplate to kickstart your next Web3 project"
+          />
+        </a>
+        <a
+          href="https://demo.dappbooster.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button"
+          ><span>Launch your <span>next</span> dApp</span> <ChevronRight /></a
+        >
+      </nav>
     </header>
   </div>
 </Wrapper>
@@ -36,11 +38,14 @@ import Wrapper from "@components/Wrapper.astro";
   }
   header {
     padding: calc(var(--space) * 2) 0;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+  }
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    z-index: 10;
     width: 100%;
   }
   .logo {
