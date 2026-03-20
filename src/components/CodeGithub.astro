@@ -7,7 +7,6 @@ const { variant = "common" } = Astro.props;
   <span class="copyText">pnpm dlx dappbooster</span>
   <button
     class="copyButton"
-    onmouseout="outFunc()"
     aria-label="Copy to clipboard"
   >
     <span class="tooltiptext myTooltip" id="myTooltip"></span>
@@ -97,19 +96,6 @@ const { variant = "common" } = Astro.props;
   </style>
 
   <script>
-    declare global {
-      interface Window {
-        outFunc: () => void;
-      }
-    }
-
-    window.outFunc = function () {
-      var tooltips = document.querySelectorAll(".myTooltip");
-      tooltips.forEach((tooltip) => {
-        tooltip.innerHTML = "Copy to clipboard";
-      });
-    };
-
     window.addEventListener("DOMContentLoaded", () => {
       const copyButtons = document.querySelectorAll(".copyButton");
       const copyTexts = document.querySelectorAll(".copyText");
@@ -119,6 +105,14 @@ const { variant = "common" } = Astro.props;
         const copyText = copyTexts[index];
         const tooltip = tooltips[index];
         const buttonText = button.querySelector(".buttonText");
+
+        const resetTooltip = () => {
+          if (tooltip) {
+            tooltip.innerHTML = "Copy to clipboard"
+          }
+        }
+        button.addEventListener("mouseleave", resetTooltip)
+        button.addEventListener("focusout", resetTooltip)
 
         button.addEventListener("click", function () {
           // Copy the text inside the text field
