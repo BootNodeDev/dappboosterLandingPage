@@ -24,3 +24,8 @@ pnpm-debug.log*
 .vscode
 .zed
 .vercel
+
+# LLM related stuff
+CLAUDE.local.md
+AGENTS.local.md
+.claude/settings.local.json
