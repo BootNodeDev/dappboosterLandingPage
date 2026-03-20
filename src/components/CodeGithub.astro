@@ -118,10 +118,6 @@ const { variant = "common" } = Astro.props;
           // Copy the text inside the text field
           if (copyText && copyText.textContent) {
             navigator.clipboard.writeText(copyText.textContent);
-          } else {
-            console.error(
-              "Failed to copy: copyText is null or textContent is null.",
-            );
           }
 
           // Update tooltip and button text
