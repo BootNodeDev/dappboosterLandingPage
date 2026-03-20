@@ -42,6 +42,7 @@ const description =
 </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <slot />
   </body>
 </html>
@@ -52,6 +53,21 @@ const description =
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem;
+    background: var(--secondary);
+    color: var(--white);
+    text-decoration: none;
+    &:focus {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+    }
   }
 
   body {
