@@ -7,7 +7,6 @@ const { variant = "common" } = Astro.props;
   <span class="copyText">pnpm dlx dappbooster</span>
   <button
     class="copyButton"
-    onmouseout="outFunc()"
     aria-label="Copy to clipboard"
   >
     <span class="tooltiptext myTooltip" id="myTooltip"></span>
@@ -97,19 +96,6 @@ const { variant = "common" } = Astro.props;
   </style>
 
   <script>
-    declare global {
-      interface Window {
-        outFunc: () => void;
-      }
-    }
-
-    window.outFunc = function () {
-      var tooltips = document.querySelectorAll(".myTooltip");
-      tooltips.forEach((tooltip) => {
-        tooltip.innerHTML = "Copy to clipboard";
-      });
-    };
-
     window.addEventListener("DOMContentLoaded", () => {
       const copyButtons = document.querySelectorAll(".copyButton");
       const copyTexts = document.querySelectorAll(".copyText");
@@ -120,19 +106,24 @@ const { variant = "common" } = Astro.props;
         const tooltip = tooltips[index];
         const buttonText = button.querySelector(".buttonText");
 
+        const resetTooltip = () => {
+          if (tooltip) {
+            tooltip.textContent = "Copy to clipboard"
+          }
+        }
+        resetTooltip()
+        button.addEventListener("mouseleave", resetTooltip)
+        button.addEventListener("focusout", resetTooltip)
+
         button.addEventListener("click", function () {
           // Copy the text inside the text field
           if (copyText && copyText.textContent) {
             navigator.clipboard.writeText(copyText.textContent);
-          } else {
-            console.error(
-              "Failed to copy: copyText is null or textContent is null.",
-            );
           }
 
           // Update tooltip and button text
           if (tooltip) {
-            tooltip.innerHTML = "Copied";
+            tooltip.textContent = "Copied";
           }
 
           if (buttonText) {
