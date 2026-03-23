@@ -32,6 +32,8 @@ All interactivity is vanilla JS in `<script>` tags within Astro components (FAQ 
 - `src/pages/index.astro` -- sole page, composes all sections; defines all CSS custom properties in `:root`
 - `src/layouts/Layout.astro` -- HTML shell with meta tags, fonts, global styles (10px base font-size for rem)
 - `src/constants/externalLinks.ts` -- shared link definitions; imported by Hero, Banner, and Footer
+- `vercel.json` -- injects security response headers (`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`) on all routes at the Vercel CDN layer
+- `.npmrc` -- hoists `eslint-plugin-jsx-a11y` to the top-level `node_modules` via `public-hoist-pattern`; required because `eslint-plugin-astro` loads it with `requireUserLocal` which bypasses pnpm's symlink isolation; removing this breaks `pnpm lint`
 
 ### Component Patterns
 
