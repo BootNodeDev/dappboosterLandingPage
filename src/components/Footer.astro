@@ -31,7 +31,7 @@ const socialItems = [
         Built by
         <Bn />
       </a>
-      <div class="socials">
+      <nav aria-label="Social media" class="socials">
         {
           socialItems.map(({ label, icon: Icon, href }) => (
             <a
@@ -45,9 +45,9 @@ const socialItems = [
             </a>
           ))
         }
-      </div>
+      </nav>
     </div>
-    <div class="rightFooter">
+    <nav aria-label="Resources" class="rightFooter">
       {
         externalLinks.map(({ label, icon: Icon, href }) => (
           <a
@@ -60,7 +60,7 @@ const socialItems = [
           </a>
         ))
       }
-    </div>
+    </nav>
   </footer>
 </Wrapper>
 
