@@ -1,10 +1,10 @@
 ---
-import { Image } from "astro:assets";
-import Wrapper from "@components/Wrapper.astro";
-import Clock from "@assets/icons/clockClockwise.svg";
-import Lightning from "@assets/icons/lightning.svg";
-import Stack from "@assets/icons/stack.svg";
-const introItema = [
+import { Image } from "astro:assets"
+import Wrapper from "@components/Wrapper.astro"
+import Clock from "@assets/icons/clockClockwise.svg"
+import Lightning from "@assets/icons/lightning.svg"
+import Stack from "@assets/icons/stack.svg"
+const introItems = [
   {
     title: "Rapid Project Setup",
     icon: Clock,
@@ -23,15 +23,15 @@ const introItema = [
     description:
       "Enjoy native wallet integration and robust authentication—ready to use with zero extra setup.",
   },
-];
+]
 ---
 
 <Wrapper>
-  <section>
+  <section aria-labelledby="intro-heading">
     <div class="TitleWrapper">
       <div class="title">
         <div class="tag">Build with Confidence</div>
-        <h2>Web3 Developer-First Tooling</h2>
+        <h2 id="intro-heading">Web3 Developer-First Tooling</h2>
       </div>
       <p class="description">
         dAppBooster is built by developers, for developers. From intuitive CLI
@@ -41,7 +41,7 @@ const introItema = [
     </div>
     <div class="listBox">
       {
-        introItema.map(({ title, icon, description }) => (
+        introItems.map(({ title, icon, description }) => (
           <div class="box">
             <div class="icon">
               <Image
@@ -205,6 +205,10 @@ const introItema = [
     height: 715px;
     border-radius: 50%;
     z-index: -1;
-    background: radial-gradient(circle, rgba(181, 28, 123, 0.15) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(181, 28, 123, 0.15) 0%,
+      transparent 70%
+    );
   }
 </style>

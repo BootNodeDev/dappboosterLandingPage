@@ -1,5 +1,5 @@
 ---
-import Wrapper from "@components/Wrapper.astro";
+import Wrapper from "@components/Wrapper.astro"
 
 const FAQs = [
   {
@@ -33,15 +33,15 @@ const FAQs = [
     answer:
       "While dAppBooster helps with initial development, scalability largely depends on your chosen blockchain and infrastructure. dAppBooster’s flexible setup ensures compatibility with various scaling solutions, making it a great starting point for your dApp.",
   },
-];
+]
 ---
 
 <Wrapper>
-  <section>
+  <section aria-labelledby="faq-heading">
     <div class="faqIntro">
       <div class="title">
         <div class="tag">Building dApps with dAppBooster</div>
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
       </div>
       <p class="description">
         Dive into the essentials of creating powerful decentralized applications
@@ -55,11 +55,23 @@ const FAQs = [
         {
           FAQs.map(({ question, answer }, index) => (
             <li class="faqItem">
-              <button class="accordionButton" aria-expanded="false" aria-controls={`faq-panel-${index}`} id={`faq-btn-${index}`}>
+              <button
+                class="accordionButton"
+                aria-expanded="false"
+                aria-controls={`faq-panel-${index}`}
+                id={`faq-btn-${index}`}
+              >
                 <span class="accordionIcon" aria-hidden="true" />
                 <span class="accordionHeader">{question}</span>
               </button>
-              <p class="accordionContent" id={`faq-panel-${index}`} role="region" aria-labelledby={`faq-btn-${index}`} aria-hidden="true" set:html={answer} />
+              <p
+                class="accordionContent"
+                id={`faq-panel-${index}`}
+                role="region"
+                aria-labelledby={`faq-btn-${index}`}
+                aria-hidden="true"
+                set:html={answer}
+              />
             </li>
           ))
         }
@@ -68,15 +80,21 @@ const FAQs = [
   </section>
 </Wrapper>
 
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": FAQs.map(({ question, answer }) => ({
-    "@type": "Question",
-    "name": question,
-    "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, "") }
-  }))
-})} />
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQs.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer.replace(/<[^>]+>/g, ""),
+      },
+    })),
+  })}
+/>
 
 <style>
   section {

@@ -1,7 +1,7 @@
 ---
-import { Image } from "astro:assets";
-import smokeImage from "@assets/smoke.svg";
-import Ghost from "@assets/ghostHero.svg";
+import { Image } from "astro:assets"
+import smokeImage from "@assets/smoke.svg"
+import Ghost from "@assets/ghostHero.svg"
 ---
 
 <div class="heroImagesWrapper">
@@ -20,6 +20,7 @@ import Ghost from "@assets/ghostHero.svg";
     height={426}
     width={2560}
     loading="eager"
+    fetchpriority="high"
     alt="dAppBooster dark clouds"
   />
 </div>

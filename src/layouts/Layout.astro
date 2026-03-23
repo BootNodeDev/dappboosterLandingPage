@@ -1,9 +1,66 @@
 ---
-import "@fontsource-variable/manrope";
+import "@fontsource-variable/manrope"
+import manropeLatinUrl from "@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url"
 
-const image = "https://dappbooster.dev/ogImage.jpg";
+const siteUrl = String(Astro.site)
+const image = "https://dappbooster.dev/ogImage.jpg"
 const description =
-  "dAppBooster is a modern blockchain boilerplate built to quickly get you started with the development of your next Web3 project.";
+  "dAppBooster is a modern blockchain boilerplate built to quickly get you started with the development of your next Web3 project."
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: "dAppBooster",
+      url: siteUrl,
+      description,
+      publisher: {
+        "@type": "Organization",
+        name: "BootNode",
+        url: "https://www.bootnode.dev/",
+      },
+      inLanguage: "en",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "dAppBooster",
+      description,
+      url: siteUrl,
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Cross-platform",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      downloadUrl: "https://github.com/bootnodedev/dappbooster/",
+      softwareRequirements: "Node.js >= 20, pnpm",
+      featureList:
+        "Wallet Integration, Multi-Chain EVM Support, Subgraph Queries, Modular Components, CLI Scaffolding",
+      screenshot: image,
+      author: {
+        "@type": "Organization",
+        name: "BootNode",
+        url: "https://www.bootnode.dev/",
+      },
+    },
+    {
+      "@type": "Organization",
+      name: "dAppBooster",
+      url: siteUrl,
+      logo: image,
+      description:
+        "Open-source Web3 starter kit for blockchain dApp development.",
+      sameAs: [
+        "https://github.com/BootNodeDev",
+        "https://twitter.com/bootnodedev",
+        "https://www.linkedin.com/company/bootnode-dev/",
+        "https://t.me/dAppBooster",
+      ],
+    },
+  ],
+}
 ---
 
 <!doctype html>
@@ -13,6 +70,13 @@ const description =
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={manropeLatinUrl}
+      crossorigin
+    />
     <title>
       dAppBooster - Web3 Template For All Your Blockchain Development Needs
     </title>
@@ -20,7 +84,10 @@ const description =
     <link rel="canonical" href={Astro.site} />
 
     <!-- social media -->
-    <meta property="og:title" content="dAppBooster - Web3 Template For All Your Blockchain Development Needs" />
+    <meta
+      property="og:title"
+      content="dAppBooster - Web3 Template For All Your Blockchain Development Needs"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
@@ -28,16 +95,28 @@ const description =
     <meta name="twitter:card" content="summary_large_image" />
     <meta content="@bootnodedev" name="twitter:site" />
     <meta content="@bootnodedev" name="twitter:creator" />
-    <meta name="twitter:title" content="dAppBooster - Web3 Template For All Your Blockchain Development Needs" />
+    <meta
+      name="twitter:title"
+      content="dAppBooster - Web3 Template For All Your Blockchain Development Needs"
+    />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "dAppBooster",
-      "url": String(Astro.site),
-      "logo": image
-    })} />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/llms.txt"
+      title="LLM-optimized site summary"
+    />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/llms-full.txt"
+      title="LLM-optimized full site context"
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -89,7 +168,9 @@ const description =
 
     a,
     button {
-      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out !important;
+      transition:
+        color 0.3s ease-in-out,
+        background-color 0.3s ease-in-out !important;
 
       &::before,
       &::after {

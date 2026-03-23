@@ -1,5 +1,5 @@
-import Docs from "@assets/icons/Docs.astro";
-import Github from "@assets/icons/Github.astro";
+import Docs from "@assets/icons/Docs.astro"
+import Github from "@assets/icons/Github.astro"
 
 export const externalLinks = [
   {
@@ -8,4 +8,4 @@ export const externalLinks = [
     href: "https://github.com/bootnodedev/dappbooster/",
   },
   { label: "Docs", icon: Docs, href: "https://docs.dappbooster.dev/" },
-];
+]
