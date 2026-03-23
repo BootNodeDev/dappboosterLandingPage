@@ -1,10 +1,10 @@
 ---
-import "@fontsource-variable/manrope"
+import "@fontsource-variable/manrope";
 
-const siteUrl = String(Astro.site)
-const image = "https://dappbooster.dev/ogImage.jpg"
+const siteUrl = String(Astro.site);
+const image = "https://dappbooster.dev/ogImage.jpg";
 const description =
-  "dAppBooster is a modern blockchain boilerplate built to quickly get you started with the development of your next Web3 project."
+  "dAppBooster is a modern blockchain boilerplate built to quickly get you started with the development of your next Web3 project.";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -59,7 +59,7 @@ const structuredData = {
       ],
     },
   ],
-}
+};
 ---
 
 <!doctype html>
@@ -76,7 +76,10 @@ const structuredData = {
     <link rel="canonical" href={Astro.site} />
 
     <!-- social media -->
-    <meta property="og:title" content="dAppBooster - Web3 Template For All Your Blockchain Development Needs" />
+    <meta
+      property="og:title"
+      content="dAppBooster - Web3 Template For All Your Blockchain Development Needs"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
@@ -84,12 +87,28 @@ const structuredData = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta content="@bootnodedev" name="twitter:site" />
     <meta content="@bootnodedev" name="twitter:creator" />
-    <meta name="twitter:title" content="dAppBooster - Web3 Template For All Your Blockchain Development Needs" />
+    <meta
+      name="twitter:title"
+      content="dAppBooster - Web3 Template For All Your Blockchain Development Needs"
+    />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM-optimized site summary" />
-    <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="LLM-optimized full site context" />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/llms.txt"
+      title="LLM-optimized site summary"
+    />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/llms-full.txt"
+      title="LLM-optimized full site context"
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -141,7 +160,9 @@ const structuredData = {
 
     a,
     button {
-      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out !important;
+      transition:
+        color 0.3s ease-in-out,
+        background-color 0.3s ease-in-out !important;
 
       &::before,
       &::after {
