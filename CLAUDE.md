@@ -31,7 +31,7 @@ All interactivity is vanilla JS in `<script>` tags within Astro components (FAQ 
 
 - `src/pages/index.astro` -- sole page, composes all sections; defines all CSS custom properties in `:root`
 - `src/layouts/Layout.astro` -- HTML shell with meta tags, fonts, global styles (10px base font-size for rem)
-- `src/constants/extenalLinks.ts` -- shared link definitions (note: filename is intentionally misspelled); imported by Hero, Banner, and Footer
+- `src/constants/externalLinks.ts` -- shared link definitions; imported by Hero, Banner, and Footer
 
 ### Component Patterns
 
@@ -57,5 +57,5 @@ All interactivity is vanilla JS in `<script>` tags within Astro components (FAQ 
 - TypeScript strict mode (extends `astro/tsconfigs/strict`)
 - No semicolons in TS/JS
 - pnpm as package manager, Node >=20.19.5 (.nvmrc)
-- ESLint 9 flat config covering JS, TS, Markdown, and CSS (eslint-plugin-astro is installed but not wired into the flat config)
+- ESLint 9 flat config covering JS, TS, Markdown, CSS, and Astro (eslint-plugin-astro with jsx-a11y-recommended enabled)
 - External links must use `target="_blank" rel="noopener noreferrer"`

@@ -4,7 +4,7 @@ import Wrapper from "@components/Wrapper.astro"
 import Clock from "@assets/icons/clockClockwise.svg"
 import Lightning from "@assets/icons/lightning.svg"
 import Stack from "@assets/icons/stack.svg"
-const introItema = [
+const introItems = [
   {
     title: "Rapid Project Setup",
     icon: Clock,
@@ -41,7 +41,7 @@ const introItema = [
     </div>
     <div class="listBox">
       {
-        introItema.map(({ title, icon, description }) => (
+        introItems.map(({ title, icon, description }) => (
           <div class="box">
             <div class="icon">
               <Image
