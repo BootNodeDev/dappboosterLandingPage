@@ -53,13 +53,13 @@ const FAQs = [
     <div class="faqs">
       <ul>
         {
-          FAQs.map(({ question, answer }) => (
+          FAQs.map(({ question, answer }, index) => (
             <li class="faqItem">
-              <button class="accordionButton">
+              <button class="accordionButton" aria-expanded="false" aria-controls={`faq-panel-${index}`} id={`faq-btn-${index}`}>
                 <span class="accordionIcon" aria-hidden="true" />
                 <span class="accordionHeader">{question}</span>
               </button>
-              <p class="accordionContent" set:html={answer} />
+              <p class="accordionContent" id={`faq-panel-${index}`} role="region" aria-labelledby={`faq-btn-${index}`} aria-hidden="true" set:html={answer} />
             </li>
           ))
         }
@@ -164,7 +164,7 @@ const FAQs = [
       .faqItem {
         list-style: none;
         width: 100%;
-        color: var(--texColor);
+        color: var(--textColor);
         display: flex;
         flex-direction: column;
         gap: calc(var(--space) * 2);
@@ -295,13 +295,18 @@ const FAQs = [
 </style>
 
 <script>
-  const faqItems = document.querySelectorAll(".faqItem");
+  const faqItems = document.querySelectorAll(".faqItem")
   faqItems.forEach((item) => {
-    const button = item.querySelector(".accordionButton");
-    if (button) {
+    const button = item.querySelector(".accordionButton")
+    const panelId = button?.getAttribute("aria-controls")
+    const panel = panelId ? document.getElementById(panelId) : null
+    if (button && panel) {
+      panel.setAttribute("aria-hidden", "true")
       button.addEventListener("click", () => {
-        item.classList.toggle("active");
-      });
+        const isActive = item.classList.toggle("active")
+        button.setAttribute("aria-expanded", String(isActive))
+        panel.setAttribute("aria-hidden", String(!isActive))
+      })
     }
-  });
+  })
 </script>
