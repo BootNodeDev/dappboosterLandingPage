@@ -3,6 +3,7 @@ import globals from "globals"
 import tseslint from "typescript-eslint"
 import markdown from "@eslint/markdown"
 import css from "@eslint/css"
+import eslintPluginAstro from "eslint-plugin-astro"
 import { defineConfig } from "eslint/config"
 
 export default defineConfig([
@@ -16,6 +17,8 @@ export default defineConfig([
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
   tseslint.configs.recommended,
+  ...eslintPluginAstro.configs["flat/recommended"],
+  ...eslintPluginAstro.configs["flat/jsx-a11y-recommended"],
   {
     files: ["**/*.md"],
     plugins: { markdown },
