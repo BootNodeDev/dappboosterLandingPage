@@ -98,7 +98,7 @@ const socialItems = [
   .socials {
     display: flex;
     align-items: center;
-    gap: calc(var(--space) * 2);
+    gap: var(--space);
     line-height: 0;
     &:before {
       content: "";
@@ -106,6 +106,13 @@ const socialItems = [
       width: 1px;
       height: 1.5rem;
       background: var(--primaryLight);
+    }
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
     }
   }
   .rightFooter {
