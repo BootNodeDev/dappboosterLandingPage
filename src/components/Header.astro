@@ -2,38 +2,34 @@
 import { Image } from "astro:assets";
 import ChevronRight from "@/assets/icons/ChevronRight.astro";
 import dAppBoosterLogo from "@assets/dAppBoosterLogo.svg";
-import Wrapper from "@components/Wrapper.astro";
 ---
 
-<Wrapper>
-  <div class="headerWrapper">
-    <header>
-      <nav aria-label="Main navigation">
-        <a href="/">
-          <Image
-            class="logo"
-            src={dAppBoosterLogo}
-            height={76}
-            width={190}
-            loading="eager"
-            alt="dAppBooster - A blockchain boilerplate to kickstart your next Web3 project"
-          />
-        </a>
-        <a
-          href="https://demo.dappbooster.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button"
-          ><span>Launch your <span>next</span> dApp</span> <ChevronRight /></a
-        >
-      </nav>
-    </header>
-  </div>
-</Wrapper>
+<div class="headerWrapper">
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="/">
+        <Image
+          class="logo"
+          src={dAppBoosterLogo}
+          height={76}
+          width={190}
+          loading="eager"
+          alt="dAppBooster - A blockchain boilerplate to kickstart your next Web3 project"
+        />
+      </a>
+      <a
+        href="https://demo.dappbooster.dev/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button"
+        ><span>Launch your <span>next</span> dApp</span> <ChevronRight /></a
+      >
+    </nav>
+  </header>
+</div>
 
 <style>
   .headerWrapper {
-    max-width: 100%;
     position: relative;
   }
   header {
@@ -46,7 +42,13 @@ import Wrapper from "@components/Wrapper.astro";
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: var(--maxWidth);
+    margin: 0 auto;
+    padding: 0 calc(var(--space) * 4);
     width: 100%;
+    @media only screen and (max-width: 1024px) {
+      padding: 0 calc(var(--space) * 2);
+    }
   }
   .logo {
     height: 76px;

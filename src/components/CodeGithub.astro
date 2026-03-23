@@ -108,9 +108,10 @@ const { variant = "common" } = Astro.props;
 
         const resetTooltip = () => {
           if (tooltip) {
-            tooltip.innerHTML = "Copy to clipboard"
+            tooltip.textContent = "Copy to clipboard"
           }
         }
+        resetTooltip()
         button.addEventListener("mouseleave", resetTooltip)
         button.addEventListener("focusout", resetTooltip)
 
@@ -122,7 +123,7 @@ const { variant = "common" } = Astro.props;
 
           // Update tooltip and button text
           if (tooltip) {
-            tooltip.innerHTML = "Copied";
+            tooltip.textContent = "Copied";
           }
 
           if (buttonText) {

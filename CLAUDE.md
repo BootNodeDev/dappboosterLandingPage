@@ -57,5 +57,5 @@ All interactivity is vanilla JS in `<script>` tags within Astro components (FAQ 
 - TypeScript strict mode (extends `astro/tsconfigs/strict`)
 - No semicolons in TS/JS
 - pnpm as package manager, Node 20 (.nvmrc)
-- ESLint 9 flat config covering JS, TS, Markdown, CSS, and Astro
+- ESLint 9 flat config covering JS, TS, Markdown, and CSS (eslint-plugin-astro is installed but not wired into the flat config)
 - External links must use `target="_blank" rel="noopener noreferrer"`

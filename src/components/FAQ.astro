@@ -59,7 +59,7 @@ const FAQs = [
                 <span class="accordionIcon" aria-hidden="true" />
                 <span class="accordionHeader">{question}</span>
               </button>
-              <p class="accordionContent" id={`faq-panel-${index}`} role="region" aria-labelledby={`faq-btn-${index}`} set:html={answer} />
+              <p class="accordionContent" id={`faq-panel-${index}`} role="region" aria-labelledby={`faq-btn-${index}`} aria-hidden="true" set:html={answer} />
             </li>
           ))
         }
@@ -74,7 +74,7 @@ const FAQs = [
   "mainEntity": FAQs.map(({ question, answer }) => ({
     "@type": "Question",
     "name": question,
-    "acceptedAnswer": { "@type": "Answer", "text": answer }
+    "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, "") }
   }))
 })} />
 
@@ -312,10 +312,14 @@ const FAQs = [
   const faqItems = document.querySelectorAll(".faqItem")
   faqItems.forEach((item) => {
     const button = item.querySelector(".accordionButton")
-    if (button) {
+    const panelId = button?.getAttribute("aria-controls")
+    const panel = panelId ? document.getElementById(panelId) : null
+    if (button && panel) {
+      panel.setAttribute("aria-hidden", "true")
       button.addEventListener("click", () => {
         const isActive = item.classList.toggle("active")
         button.setAttribute("aria-expanded", String(isActive))
+        panel.setAttribute("aria-hidden", String(!isActive))
       })
     }
   })

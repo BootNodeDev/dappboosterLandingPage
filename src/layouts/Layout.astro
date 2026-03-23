@@ -17,29 +17,27 @@ const description =
       dAppBooster - Web3 Template For All Your Blockchain Development Needs
     </title>
     <meta name="description" content={description} />
-    <link rel="canonical" href="https://dappbooster.dev/" />
+    <link rel="canonical" href={Astro.site} />
 
     <!-- social media -->
     <meta property="og:title" content="dAppBooster - Web3 Template For All Your Blockchain Development Needs" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
-    <meta property="og:url" content="https://dappbooster.dev/" />
+    <meta property="og:url" content={Astro.site} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta content="@bootnodedev" name="twitter:site" />
     <meta content="@bootnodedev" name="twitter:creator" />
     <meta name="twitter:title" content="dAppBooster - Web3 Template For All Your Blockchain Development Needs" />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "dAppBooster",
-  "url": "https://dappbooster.dev",
-  "logo": "https://dappbooster.dev/ogImage.jpg"
-}
-</script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "dAppBooster",
+      "url": String(Astro.site),
+      "logo": image
+    })} />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
