@@ -1,5 +1,5 @@
 ---
-import Wrapper from "@components/Wrapper.astro";
+import Wrapper from "@components/Wrapper.astro"
 
 const FAQs = [
   {
@@ -33,7 +33,7 @@ const FAQs = [
     answer:
       "While dAppBooster helps with initial development, scalability largely depends on your chosen blockchain and infrastructure. dAppBooster’s flexible setup ensures compatibility with various scaling solutions, making it a great starting point for your dApp.",
   },
-];
+]
 ---
 
 <Wrapper>
@@ -327,18 +327,18 @@ const FAQs = [
 </style>
 
 <script>
-  const faqItems = document.querySelectorAll(".faqItem");
+  const faqItems = document.querySelectorAll(".faqItem")
   faqItems.forEach((item) => {
-    const button = item.querySelector(".accordionButton");
-    const panelId = button?.getAttribute("aria-controls");
-    const panel = panelId ? document.getElementById(panelId) : null;
+    const button = item.querySelector(".accordionButton")
+    const panelId = button?.getAttribute("aria-controls")
+    const panel = panelId ? document.getElementById(panelId) : null
     if (button && panel) {
-      panel.setAttribute("aria-hidden", "true");
+      panel.setAttribute("aria-hidden", "true")
       button.addEventListener("click", () => {
-        const isActive = item.classList.toggle("active");
-        button.setAttribute("aria-expanded", String(isActive));
-        panel.setAttribute("aria-hidden", String(!isActive));
-      });
+        const isActive = item.classList.toggle("active")
+        button.setAttribute("aria-expanded", String(isActive))
+        panel.setAttribute("aria-hidden", String(!isActive))
+      })
     }
-  });
+  })
 </script>
