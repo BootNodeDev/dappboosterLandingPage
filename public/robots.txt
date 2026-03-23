@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dappbooster.dev/sitemap-index.xml

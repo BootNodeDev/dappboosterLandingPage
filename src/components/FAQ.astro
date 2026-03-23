@@ -68,6 +68,16 @@ const FAQs = [
   </section>
 </Wrapper>
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": FAQs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer.replace(/<[^>]+>/g, "") }
+  }))
+})} />
+
 <style>
   section {
     margin: calc(var(--space) * 10) 0 calc(var(--space) * 7);

@@ -17,18 +17,30 @@ const description =
       dAppBooster - Web3 Template For All Your Blockchain Development Needs
     </title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={Astro.site} />
 
     <!-- social media -->
     <meta property="og:title" content="dAppBooster - Web3 Template For All Your Blockchain Development Needs" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
-    <meta property="og:url" content="https://dappbooster.dev/" />
+    <meta property="og:url" content={Astro.site} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta content="dAppBooster - Web3 Template and Components Demo" name="twitter:site" />
     <meta content="@bootnodedev" name="twitter:creator" />
+    <meta name="twitter:title" content="dAppBooster - Web3 Template For All Your Blockchain Development Needs" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "dAppBooster",
+      "url": String(Astro.site),
+      "logo": image
+    })} />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <slot />
   </body>
 </html>
@@ -39,6 +51,21 @@ const description =
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem;
+    background: var(--secondary);
+    color: var(--white);
+    text-decoration: none;
+    &:focus {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+    }
   }
 
   body {
@@ -62,7 +89,7 @@ const description =
 
     a,
     button {
-      transition: all 0.3s ease-in-out !important;
+      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out !important;
 
       &::before,
       &::after {
