@@ -39,8 +39,8 @@
       "sharp"
     ],
     "overrides": {
-      "flatted": ">=3.4.2",
-      "@eslint/plugin-kit": ">=0.3.4"
+      "flatted": "^3.4.2",
+      "@eslint/plugin-kit": "^0.3.4"
     }
   }
 }
