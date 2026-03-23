@@ -46,16 +46,16 @@ All interactivity is vanilla JS in `<script>` tags within Astro components (FAQ 
 - Scoped CSS in `<style>` blocks, no CSS framework
 - Desktop-first responsive design (max-width media queries: 1200px, 1024px, 768px, 480px)
 - **Spacing**: always `calc(var(--space) * N)`, never hardcoded pixel values
-- **Visual hierarchy**: use `opacity: 0.6`/`0.8` on text, not different color values
-- **Hover states**: `translateY(-2px)` on buttons; global `transition: all 0.3s ease-in-out` on `a`/`button`
+- **Visual hierarchy**: use `opacity: 0.7`/`0.8` on secondary text, not different color values
+- **Hover states**: `translateY(-2px)` on buttons; global `transition` on `a`/`button` must target specific properties (`color`, `background-color`), never `transition: all`
 - **Animations**: use `translate3d` (not `translate`) for GPU acceleration; respect `prefers-reduced-motion`
-- **Decorative elements**: absolute-positioned circles with `blur(250px)` and `z-index: -1`
+- **Decorative elements**: absolute-positioned circles using `radial-gradient` backgrounds with `z-index: -1`
 - Font: Manrope Variable, rem units based on `html { font-size: 10px }`
 
 ## Code Conventions
 
 - TypeScript strict mode (extends `astro/tsconfigs/strict`)
 - No semicolons in TS/JS
-- pnpm as package manager, Node 20 (.nvmrc)
+- pnpm as package manager, Node >=20.19.5 (.nvmrc)
 - ESLint 9 flat config covering JS, TS, Markdown, and CSS (eslint-plugin-astro is installed but not wired into the flat config)
 - External links must use `target="_blank" rel="noopener noreferrer"`
