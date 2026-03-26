@@ -4,6 +4,7 @@ import Wrapper from "@components/Wrapper.astro"
 import CodeGithub from "@components/CodeGithub.astro" // Ensure the path is correct
 import { externalLinks } from "@/constants/externalLinks"
 import Button from "@components/Button.astro"
+import { bannerContent } from "@/data/siteContent"
 
 import Booster from "@assets/icons/booster.svg"
 import BannerBg from "@assets/icons/bannerBg.svg"
@@ -20,11 +21,9 @@ import BannerBg from "@assets/icons/bannerBg.svg"
       alt="dAppBooster rocket icon"
     />
     <div class="content">
-      <h2 id="banner-heading">Start building your next Web3 project today</h2>
+      <h2 id="banner-heading">{bannerContent.heading}</h2>
       <p>
-        Kickstart your Web3 development journey effortlessly. Run the command
-        below to launch your project or explore our comprehensive documentation
-        for guidance.
+        {bannerContent.description}
       </p>
       <div class="actions">
         <CodeGithub variant="secondaryLight" />
