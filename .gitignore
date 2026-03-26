@@ -30,4 +30,5 @@ CLAUDE.local.md
 AGENTS.local.md
 .claude/settings.local.json
 
-docs/
+# LLM-generated plans
+docs/plans/
