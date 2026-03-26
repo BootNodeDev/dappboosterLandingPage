@@ -4,39 +4,24 @@ import Wrapper from "@components/Wrapper.astro"
 import Clock from "@assets/icons/clockClockwise.svg"
 import Lightning from "@assets/icons/lightning.svg"
 import Stack from "@assets/icons/stack.svg"
-const introItems = [
-  {
-    title: "Rapid Project Setup",
-    icon: Clock,
-    description:
-      "Kickstart your next Web3 app in minutes with pre-built smart contract templates and a full-stack boilerplate.",
-  },
-  {
-    title: "EVM Chain Support",
-    icon: Lightning,
-    description:
-      "Easily deploy to any EVM-compatible network like Ethereum, Polygon, Arbitrum, and more.",
-  },
-  {
-    title: "Built-in Developer Tools",
-    icon: Stack,
-    description:
-      "Enjoy native wallet integration and robust authentication—ready to use with zero extra setup.",
-  },
-]
+import { introContent } from "@/data/siteContent"
+
+const icons = [Clock, Lightning, Stack]
+const introItems = introContent.items.map((item, i) => ({
+  ...item,
+  icon: icons[i],
+}))
 ---
 
 <Wrapper>
   <section aria-labelledby="intro-heading">
     <div class="TitleWrapper">
       <div class="title">
-        <div class="tag">Build with Confidence</div>
-        <h2 id="intro-heading">Web3 Developer-First Tooling</h2>
+        <div class="tag">{introContent.tag}</div>
+        <h2 id="intro-heading">{introContent.heading}</h2>
       </div>
       <p class="description">
-        dAppBooster is built by developers, for developers. From intuitive CLI
-        tools to smooth local testing environments, everything is designed to
-        remove friction and accelerate your workflow.
+        {introContent.description}
       </p>
     </div>
     <div class="listBox">

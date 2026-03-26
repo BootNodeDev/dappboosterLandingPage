@@ -4,6 +4,7 @@ import HeroImages from "@components/HeroImages.astro"
 import Button from "@components/Button.astro"
 import { externalLinks } from "@/constants/externalLinks"
 import CodeGithub from "@components/CodeGithub.astro"
+import { heroContent } from "@/data/siteContent"
 ---
 
 <section aria-labelledby="hero-heading">
@@ -11,10 +12,9 @@ import CodeGithub from "@components/CodeGithub.astro"
   <Wrapper>
     <div class="content">
       <div class="textWrapper">
-        <h1 id="hero-heading">Boost dApp development on the Blockchain</h1>
+        <h1 id="hero-heading">{heroContent.heading}</h1>
         <p>
-          A modern starter kit built with React to quickly get started with your
-          next web3 project.
+          {heroContent.subheading}
         </p>
       </div>
       <div class="buttons">

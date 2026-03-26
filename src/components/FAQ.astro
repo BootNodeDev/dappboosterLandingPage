@@ -1,52 +1,19 @@
 ---
 import Wrapper from "@components/Wrapper.astro"
+import { faqContent } from "@/data/siteContent"
 
-const FAQs = [
-  {
-    question: "What is dAppBooster, and how can it help me build a dApp?",
-    answer:
-      "dAppBooster is an open-source tool designed to simplify dApp development. It provides out-of-the-box features like wallet integration, authentication, and developer-friendly templates, allowing you to focus on your app's unique value without worrying about basic setup tasks.",
-  },
-  {
-    question: "Do I need prior Web3 development experience to use dAppBooster?",
-    answer:
-      "Not necessarily! dAppBooster is beginner-friendly and includes detailed documentation to guide you through setup and customization. However, familiarity with JavaScript and blockchain concepts will enhance your experience.",
-  },
-  {
-    question: "Can I customize the features provided by dAppBooster?",
-    answer:
-      "Absolutely! dAppBooster is highly modular, enabling you to tailor authentication methods, wallet integrations, and UI components to match your dApp's specific requirements.",
-  },
-  {
-    question: "Do I need to pay to use dAppBooster?",
-    answer:
-      "No, dAppBooster is completely free and open-source. You can access and use it without any licensing costs, making it an excellent tool for developers at any level.",
-  },
-  {
-    question: "How do I get started with dAppBooster?",
-    answer:
-      "Start by running <code>pnpm dlx dappbooster</code> in your terminal and then follow the instructions.",
-  },
-  {
-    question:
-      "Is dAppBooster suitable for scaling my dApp to handle increased traffic?",
-    answer:
-      "While dAppBooster helps with initial development, scalability largely depends on your chosen blockchain and infrastructure. dAppBooster’s flexible setup ensures compatibility with various scaling solutions, making it a great starting point for your dApp.",
-  },
-]
+const FAQs = faqContent.items
 ---
 
 <Wrapper>
   <section aria-labelledby="faq-heading">
     <div class="faqIntro">
       <div class="title">
-        <div class="tag">Building dApps with dAppBooster</div>
-        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <div class="tag">{faqContent.tag}</div>
+        <h2 id="faq-heading">{faqContent.heading}</h2>
       </div>
       <p class="description">
-        Dive into the essentials of creating powerful decentralized applications
-        with dAppBooster. Here are answers to common questions to help you get
-        started seamlessly.
+        {faqContent.description}
       </p>
     </div>
 
