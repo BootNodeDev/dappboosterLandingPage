@@ -6,24 +6,26 @@ import Github from "@assets/icons/Github.astro"
 import X from "@assets/icons/X.astro"
 import LinkedIn from "@assets/icons/Linkedin.astro"
 import { externalLinks } from "@/constants/externalLinks"
+import { siteMetadata } from "@/data/siteContent"
 
-const socialItems = [
-  { label: "Telegram", icon: Telegram, href: "https://t.me/dAppBooster" },
-  { label: "Github", icon: Github, href: "https://github.com/BootNodeDev" },
-  { label: "Twitter", icon: X, href: "https://twitter.com/bootnodedev" },
-  {
-    label: "LinkedIn",
-    icon: LinkedIn,
-    href: "https://www.linkedin.com/company/bootnode-dev/",
-  },
-]
+const iconMap: Record<string, typeof Telegram> = {
+  Telegram,
+  GitHub: Github,
+  "Twitter/X": X,
+  LinkedIn,
+}
+
+const socialItems = siteMetadata.socialLinks.map((s) => ({
+  ...s,
+  icon: iconMap[s.label],
+}))
 ---
 
 <Wrapper>
   <footer>
     <div class="leftFooter">
       <a
-        href="https://www.bootnode.dev/"
+        href={siteMetadata.links.bootnode}
         target="_blank"
         rel="noopener noreferrer"
         class="bn"
