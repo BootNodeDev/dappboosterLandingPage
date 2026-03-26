@@ -1,11 +1,12 @@
 import Docs from "@assets/icons/Docs.astro"
 import Github from "@assets/icons/Github.astro"
+import { siteMetadata } from "@/data/siteContent"
 
 export const externalLinks = [
   {
     label: "Github",
     icon: Github,
-    href: "https://github.com/bootnodedev/dappbooster/",
+    href: siteMetadata.links.github,
   },
-  { label: "Docs", icon: Docs, href: "https://docs.dappbooster.dev/" },
+  { label: "Docs", icon: Docs, href: siteMetadata.links.docs },
 ]
