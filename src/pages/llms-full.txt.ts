@@ -42,9 +42,9 @@ Last-Updated: ${buildDate}
 
 ## Overview
 
-${description} Everything you need to go from idea to live dApp, fast. dAppBooster removes setup friction and provides production-ready Web3 essentials out of the box.
+${description} ${featuresContent.description}
 
-Built by developers, for developers. From intuitive CLI tools to smooth local testing environments, everything is designed to remove friction and accelerate your workflow.
+${introContent.description}
 
 ## Features
 

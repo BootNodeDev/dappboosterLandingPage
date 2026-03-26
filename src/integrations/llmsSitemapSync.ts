@@ -21,7 +21,7 @@ export default function llmsSitemapSync(): AstroIntegration {
 
         const sitePages = pages
           .map((p) => p.pathname)
-          .filter((p) => p !== "llms.txt" && p !== "llms-full.txt")
+          .filter((p) => !p.endsWith(".txt"))
 
         const missingPages: string[] = []
         for (const page of sitePages) {
