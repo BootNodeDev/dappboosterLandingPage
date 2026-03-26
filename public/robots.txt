@@ -4,6 +4,9 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
 
@@ -16,10 +19,19 @@ Allow: /
 User-agent: Claude-SearchBot
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 User-agent: meta-externalagent
@@ -29,6 +41,15 @@ User-agent: Bytespider
 Allow: /
 
 User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://dappbooster.dev/sitemap-index.xml
