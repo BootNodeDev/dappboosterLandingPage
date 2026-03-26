@@ -4,7 +4,7 @@ import { siteMetadata } from "@/data/siteContent"
 
 export const externalLinks = [
   {
-    label: "Github",
+    label: "GitHub",
     icon: Github,
     href: siteMetadata.links.github,
   },
